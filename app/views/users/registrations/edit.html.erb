@@ -1,0 +1,42 @@
+<div class="only_from_page">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put ,class:"only_from_page_form" })  do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    <div> 
+      <h2>アカウント編集</h2>
+    </div>
+
+    <div class="only_from_page_field">
+      <span>メールアドレス</span>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <% end %>
+
+    <div class="only_from_page_field">
+      <span>変更後パスワード（変更する場合のみ入力/6文字以上）</span>
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+    <div class="only_from_page_field">
+      <span>パスワード確認用（変更する場合のみ入力）</span>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="only_from_page_field">
+      <span>現在のパスワード(Current password)</span>
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
+
+    <div class="actions only_from_page_field">
+      <%= f.submit "更新" %>
+      <%= link_to "戻る", :back ,class:"user_edit_link_to_btn"%>
+    </div>
+  <% end %>
+</div>
+
+  <%# <h3>Cancel my account</h3>
+
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete </p> %>
+

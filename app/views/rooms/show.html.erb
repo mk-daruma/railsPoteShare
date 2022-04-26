@@ -1,0 +1,45 @@
+<div class="room_show">
+  <div class="room_show_info">
+    <%= image_tag @room.room_image.to_s , class:"room_show_image" %> 
+    <div class="room_show_info_parts">
+      <a href="/" class="room_show_info_parts_left">
+        <%= image_tag @room.user.user_image.to_s ,class:"room_show_user_image"%>
+      </a>
+      <div class="room_show_info_parts_right">
+        <span class="room_show_info_parts_right_name"><%= @room.name %></span><br>
+        <span><%= @room.address %></span>
+      </div>
+    </div>
+    <div class="room_show_info_parts_bottom">
+      <%= @room.introduction %>
+    </div>
+  </div>
+
+  <%= form_with model:@reservation,url:new_reservation_path, class:"room_show_reservation_form" ,method: :get do |f|  %>  
+    <div class="room_show_reservation">  
+      <div>
+        <span class="room_show_reservation_price"><%= @room.price %>/日</span>
+      </div>
+      <div>
+        <%= f.label :reservation_start_day,"開始日"  %><br>
+        <%= f.date_field :reservation_start_day ,class:"room_show_reservation_form_item" %>
+      </div>
+      <div>
+        <%= f.label :reservation_end_day,"終了日" %><br>
+        <%= f.date_field :reservation_end_day ,class:"room_show_reservation_form_item" %>
+      </div>
+      <div>
+        <%= f.label :people,"人数" %><br>
+        <%= f.number_field :people ,class:"room_show_reservation_form_item" %>
+      </div>
+      <%= f.hidden_field :room_id,value:@room.id %>
+      <% if user_signed_in? %>
+        <div>
+          <%= f.submit "予約" ,class:"room_show_reservation_form_item room_show_reservation_submit"%>
+        </div>
+      <% else %>
+        <%= button_to "ログイン",{controller: 'users/sessions', action: 'new'},{method: :get , class: "user_btn user_btn_create"} %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

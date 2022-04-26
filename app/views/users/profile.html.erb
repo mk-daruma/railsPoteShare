@@ -1,0 +1,32 @@
+<div class="user_profile">
+  <div class="nav">
+    <ul class="nav_ul">
+      <li class="nav_li user_black_nav_li"><%= link_to 'アカウント', users_account_path(@user.id), class: 'dropdown-item',method: :get%></li>
+      <li class="nav_li user_blue_nav_li"><%= link_to 'プロフィール', users_profile_path(@user.id), class: 'dropdown-item',method: :get%></li>
+    </ul>
+  </div>
+  <div class="user_profile_form_background">
+    <%= form_with model: @user , class:"user_profile_form" do |f| %>
+      <%= render "shared/error", obj:@user %>
+      <h3 class="user_field border_bottom">プロフィール</h3>
+      <div class="user_field border_bottom">
+        <span>現在のアイコン画像</span><%= image_tag @user.user_image.to_s ,width:"150px",height:"75px" %>
+      </div>
+
+      <div class="user_field border_bottom">
+        <span class="must_word">アイコン画像</span><%= f.file_field :user_image ,class:"user_profile_parts", placeholder: "ファイルを選択"  %>
+      </div>
+      
+      <div class="user_field border_bottom">
+        <span class="must_word">ユーザー名</span><%= f.text_field :name,  autocomplete: "name" ,class:"user_profile_parts", placeholder: "ルーム名を入力"  %></p>
+      </div>
+
+      <div class="user_field border_bottom">
+        <span class="must_word">自己紹介文</span><%= f.text_area :introduction, autofocus: true,  autocomplete: "introduction",class:"user_profile_parts" , placeholder: "ルーム説明を入力"  %></p>
+      </div>
+      <div class="user_profile_submit">
+        <%= f.submit "登録" %>
+      </div>
+    <% end %>
+  </div>
+</div>

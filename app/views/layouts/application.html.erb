@@ -8,9 +8,67 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v6.1.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
+    <header class="header">
+      <div class="header_logo">
+        <a href="/"><img alt="サイトのロゴ画像" src ="https://presite-potepancamp-rails-02.herokuapp.com/assets/logo.png">  </a>
+      </div>
+      <div class="header_search">
+        <%= search_form_for @q, url: search_rooms_path ,class:"header_search_form_area" do |f| %>
+          <span><%= f.search_field :address_cont ,class:"header_search_area", placeholder: "エリア"  %></span>
+        <% end %>
+        <%= search_form_for @q, url: search_rooms_path,class:"header_search_form_keyword" do |f| %>
+          <%= f.search_field :name_or_introduction_cont ,class:"header_search_keyword", placeholder: "キーワード"  %>
+        <% end %>
+      </div>        
+      <% if user_signed_in? %>
+        <div class="btn_after_login">
+          <span class="name"><%= @user.name %></span>
+          <% if @user.user_image? %>
+            <span><%= image_submit_tag @user.user_image.to_s ,id:"menu_btn" ,class:"menu_btn" %></span>
+          <% else %>
+            <%= image_submit_tag "https://presite-potepancamp-rails-02.herokuapp.com/assets/default_icon-9263fc59c414b7228d256fc178dcb22183561357950a68f5ad086ba7ee054974.jpg" ,id:"menu_btn",class:"menu_btn",width:"40px",height:"40px" %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="btn_before_login">
+          <%= button_to "ログイン",{controller: 'users/sessions', action: 'new'},{method: :get , class: "user_btn user_btn_create"} %>
+          <%= button_to "登録する",{controller: 'users/registrations', action: 'new'},{method: :get , class: "user_btn user_btn_login"} %> 
+        </div>
+      <% end %>  
+    </header>
+    <% if user_signed_in? %>
+      <ul id="menu" class="menu hide" style="list-style: none;">
+        <li class="menu_item"><%= link_to 'ルーム登録', new_room_path, class: 'dropdown-item',method: :get%></li>
+        <li class="menu_item"><%= link_to '予約済みルーム一覧', reservations_path,class: 'dropdown-item',method: :get%></li>
+        <li class="menu_item"><%= link_to '登録済みルーム一覧', rooms_posts_path, class: 'dropdown-item',method: :get%></li>
+        <li class="menu_item"><%= link_to '設定', users_account_path,class: 'dropdown-item',method: :get%></li>
+        <li class="menu_item"><%= link_to 'ログアウト', destroy_user_session_path,class: 'dropdown-item',method: :delete%></li>
+      </ul>
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
+    <footer class="footer">
+      <p class="footer_logo">© 2020 POTEPAN.INC.</p>
+    </footer>
+    <script>
+      const menu_btn = document.getElementById('menu_btn');
+      const menu = document.getElementById('menu');
+
+      document.addEventListener("turbolinks:load",() => {
+        menu_btn.addEventListener('click',() => {
+        if (menu.classList.contains('hide') == true ) {
+          menu.classList.remove('hide');
+        } else {
+          menu.classList.add('hide');
+        }
+
+      })});
+      
+    </script>
   </body>
 </html>
