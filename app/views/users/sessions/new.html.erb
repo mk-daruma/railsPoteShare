@@ -1,0 +1,22 @@
+<%= render "users/shared/error_messages", resource: resource %>
+<div class="only_from_page">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class:"only_from_page_form" }) do |f| %>
+    
+    <h2>ログイン</h2>
+    <div class="only_from_page_field">
+      <span class="must">必須</span>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス" %>
+    </div>
+
+    <div class="only_from_page_field">
+    <span class="must">必須</span>
+      <%= f.password_field :password, autocomplete: "current-password" ,placeholder: "パスワード"%>
+    </div>
+
+    <div class="actions user_sessions_new_btn">
+      <%= f.submit "ログイン" %>
+      <%= link_to "アカウントを作成する","http://127.0.0.1:3000/users/sign_up?",class:"link_to_btn user_login_link_to_btn" %>
+    </div>
+  <% end %>
+</div>
+

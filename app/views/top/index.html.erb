@@ -1,0 +1,37 @@
+ <main>
+    <div class="main_search">
+      <div class="main_search_form" >
+        <%= search_form_for @q, url: search_rooms_path ,class:"room_search_main" do |f| %>
+          <h2>Potepan Shareでまだ体験したことのない旅をしよう</h2>
+          <p>エリア</p>
+          <div class="main_search_area">
+            <%= f.search_field :address_cont , class: "main_search_area_parts main_search_area_parts_top" , placeholder: "東京"  %>
+            <%= f.submit "探す",  class: "main_search_area_parts main_search_area_parts_bottom" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  <h2 class="recommend_title">おすすめのエリア</h2>
+  <div class="recommend_area"> 
+    <%= link_to "http://127.0.0.1:3000/rooms/search?q%5Baddress_cont%5D=東京" , class:"recommend_area_img"  do %>
+      <%= image_tag "https://presite-potepancamp-rails-02.herokuapp.com/assets/img_tokyo.jpg",class:"recommend_area_img" %>
+      <span class="recommend_area_word">東京</span>
+    <% end %>
+
+    <%= link_to "http://127.0.0.1:3000/rooms/search?q%5Baddress_cont%5D=大阪" , class:"recommend_area_img"  do %>
+      <%= image_tag "https://presite-potepancamp-rails-02.herokuapp.com/assets/img_osaka.jpg",class:"recommend_area_img" %>
+      <span class="recommend_area_word">大阪</span>
+    <% end %>
+
+    <%= link_to "http://127.0.0.1:3000/rooms/search?q%5Baddress_cont%5D=京都" , class:"recommend_area_img"  do %>
+      <%= image_tag "https://presite-potepancamp-rails-02.herokuapp.com/assets/img_kyoto.jpg",class:"recommend_area_img" %>
+      <span class="recommend_area_word">京都</span>
+    <% end %>
+
+    <%= link_to "http://127.0.0.1:3000/rooms/search?q%5Baddress_cont%5D=札幌" , class:"recommend_area_img"  do %>
+      <%= image_tag "https://presite-potepancamp-rails-02.herokuapp.com/assets/img_sapporo.jpg",class:"recommend_area_img" %>
+      <span class="recommend_area_word">札幌</span>
+    <% end %>
+  </div>
+</main>
