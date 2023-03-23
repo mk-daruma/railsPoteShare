@@ -1,0 +1,590 @@
+body{
+    margin: 0;
+}
+
+// header
+.header{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+@media screen and (max-width:768px){
+    .menu_btn{
+    width: 100%;
+    height: auto;
+}}
+
+.btn_after_login{
+    margin-left: auto;
+    // width:40vw;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.btn_before_login{
+    margin-left: auto;
+    padding: 20px;
+    display: flex;
+}
+
+
+.user_btn{
+    border-radius: 100vh;
+    padding: 5px;
+}
+
+.user_btn:hover {
+	opacity: 0.5 ;
+}
+
+.user_btn_create{
+    background: #d3d3d3;
+    margin-right: 10px;
+}
+
+.user_btn_login{
+    background:#00ccff;
+}
+
+.menu_btn{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.header_search{
+    display: flex;
+    column-gap:10px;
+}
+
+@media screen and (max-width:768px){
+    .header_search{
+      display: none;
+    }}
+
+.header_search_area{
+    box-sizing: content-box;
+    height: 20px;
+    border: none;
+    outline: none;
+}
+
+.header_search_keyword{
+    box-sizing: content-box;
+    height: 20px;
+    border: none;
+    outline: none;
+}
+
+
+.header_search_form_area{
+    background-color: white;
+    position: relative;
+    padding: 3px 0 3px 2em;
+}
+
+.header_search_form_keyword{
+    background-color: white;
+    position: relative;
+    padding: 3px 0 3px 2em;
+}
+
+.header_search_form_area::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f3c5';
+    font-weight: 900;
+    background-color:white;
+    position: absolute;
+    top: 6px;              
+    left: 5px;             
+}
+
+.header_search_form_keyword::before {
+    font-family: "Font Awesome 5 Free";
+    content: '\f002';
+    font-weight: 900;
+    background-color:white;
+    position: absolute;
+    top: 6px;              
+    left: 5px;             
+}
+
+// top/index
+.main_search{
+    // z-index: 0;
+     background-image:  url(https://presite-potepancamp-rails-02.herokuapp.com/assets/img_cover_top.jpg) ;
+     background-size:  cover;
+     height: 600px;
+}
+
+.main_search_form{
+    align-items: center;
+    display: flex;
+    padding-left: 60px;
+    height: 650px;
+}
+
+.room_search_main{
+    background: white;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+
+.main_search_area_parts{
+    margin:  0 auto; 
+    padding: 10px;
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 20px;
+}
+
+.main_search_area_parts_bottom{
+    margin-top: 10px;
+    background-color: #00CCFF;
+}
+
+.recommend_title{
+    margin-top: 30px;
+    margin-left: 200px;
+}
+
+.recommend_area{
+    display: flex;
+    margin: 0 200px 50px ;
+    column-gap: 10px;
+    max-width: 100%;
+    height: auto;
+}
+
+.recommend_area_img{
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    
+}
+
+.recommend_area_word{
+    position: absolute;
+    top: 300px;        
+    left:38%;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+}
+
+// room/new
+.room_new_page{
+    display: flex;
+    background-color: #F6F8F9;
+}
+
+.nav{
+    border-right: 1px solid;
+    background-color: white;
+}
+
+.nav_ul{
+    list-style: none;
+    // border-right: 5px solid #00CCFF;
+    margin-right: 10px;
+}
+
+.nav_li{
+    padding: 5px;
+    margin-right: 10px;
+    color: #00CCFF;
+    border-right: 5px solid #00CCFF;
+    margin-bottom: 15px;
+}
+
+.room_new_field{
+    margin: 50px auto;
+}
+
+.room_new_field_form{
+    width: 150%;
+    height: 100%;
+    margin: 10px  10px 10px;
+    border: 0.3px solid white;
+    background-color: white;
+}
+
+.room_field{
+    border-bottom: 1px solid #eaedef;
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 10px 30px;
+}
+
+.room_new_title{
+    // border-bottom: 1px solid;
+    margin-left: 5px;
+}
+
+.must{
+    width:40px;
+}
+
+.room_new_field{
+    display: flex;
+}
+
+.room_new_field_form_item{
+    // display: flex; ⇨これはレスポンシブ対応の記述用 
+    width:60%;
+    // width: 90%;⇨これはレスポンシブ対応の記述用
+}
+
+.room_new_item{
+    margin-left: 15px;
+    // display: flex;
+    // justify-content: space-between;
+}
+
+.must_word::after{
+    content: "必須";
+    color: #fff;
+    background-color: #ff0000a8;
+    font-size: 12px;
+    border-radius: 5px;
+    padding: 4px;
+    margin: 0 5px;
+}
+
+.room_new_submit{
+    background-color: #00CCFF;
+    margin-left: 20px;
+    border-radius: 20px;
+    padding: 0 30px 0;
+}
+
+// reservation/index
+.table_page{
+    padding: 30px;
+}
+
+table{
+    border-collapse:collapse;
+}
+
+tbody tr:nth-child(even)  {
+	background: #eaedef;
+}
+
+td{
+    padding: 10px;
+}
+
+th{
+    border-top: 1px solid #eaedef;
+    border-bottom: 1px solid #eaedef;
+}
+
+// room/show
+.room_show_image{
+    width: 600px;
+    height: 300px;
+    padding: 10px;
+    object-fit: cover;
+}
+
+.room_show_user_image{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+// .room_show_info{
+
+// }
+
+ .room_show_info_parts_right_name{
+     font-weight: bold;
+ }
+
+.room_show_info_parts{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.room_show_reservation_price::before{
+    content: "￥";
+}
+
+.room_show_info_parts_bottom{
+    width: 100%;
+    margin-bottom: 50px;
+    padding: 20px;
+    border-top: 1px solid #eaedef;
+    border-bottom: 1px solid #eaedef;
+}
+
+.room_show_reservation{
+    padding: 20px;
+    margin-left: 20px;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content:space-around;
+    border: 1px solid #eaedef;
+    row-gap: 20px;
+    // justify-content:space-around;
+}
+
+.room_show_reservation_submit{
+    margin-top: 10px;
+    background-color: #00CCFF;
+    border: #00ccff;
+}
+
+.room_show_reservation_form_item{
+    width: 100%;
+}
+
+.room_show{
+    display: flex;
+    justify-content: center;
+}
+
+// footer
+.footer{
+    background-color: black;
+    width: 100%;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_logo{
+    text-align:  center; 
+    color: white;
+}
+
+// .must{
+//     border-radius: 5px;
+//     background-color: #fa8072;
+//     color: white;
+//     margin-right: 10px;
+//     padding: 2px;
+// }
+
+// 応急措置
+.name{
+    color: white;
+}
+
+.menu{
+    background-color: white;
+    // float: right;
+    position: absolute;
+    top: 92px;
+    right: 10px;
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .5);
+    margin: 0px 0px 6px;
+    padding: 10px;
+}
+
+.hide{
+    display: none;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+// reservation/new(確認画面)
+.reservation_new_form_item{
+    margin:5% 40% 5%;
+    padding: 10px;
+    display: flex;
+    flex-flow: column;
+    border: 1px solid #eaedef;
+    row-gap: 10px;
+}
+
+.reservation_new_form_item_readonly{
+    background-color: #e9ecef;
+}
+
+.reservation_new_form_item_back{
+    text-align: center;
+}
+
+.reservation_new_form_item_border_top{
+    border-top: 1px solid #eaedef;
+}
+
+.reservation_new_form_item_border{
+    border-bottom: 1px solid #eaedef;
+}
+
+// room_search
+.room_search{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+
+.room_search_word_info{
+    display: flex;
+    flex-flow: column;
+    font-size: 8px;
+    border: 0.5px solid;
+    border-top: none; 
+    width:100% /* ボックスの横幅を指定する */;
+
+}
+
+.room_search_word_info_parts{
+    white-space: pre-wrap;
+}
+
+.room_search_img{
+    width: 200px;
+    height: 100px;
+}
+
+// ユーザー設定（プロフィール）
+.user_profile{
+    display: flex;
+    background-color: #eaedef;
+}
+
+.user_profile_form_background{
+    margin: 30px auto;
+}
+
+.user_profile_form{
+    margin: 25px 25px 25px;
+    padding: 30px;
+    display: flex;
+    flex-flow: column;
+    row-gap: 15px;
+    background-color: white;
+    // width: 100%;
+}
+
+.user_field{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.user_profile_submit{
+    text-align: center;
+    
+}
+
+.user_profile_parts{
+   width:50%;
+   margin: 10px;
+}
+
+.border_bottom{
+    border-bottom: 1px solid #eaedef;
+}
+
+.user_blue_nav_li{
+    padding: 5px;
+    margin-right: 10px;
+    color: #00CCFF;
+    border-right: 5px solid #00CCFF;
+    margin-bottom: 15px;
+}
+
+.user_black_nav_li{
+    padding: 5px;
+    margin-right: 10px;
+    color: black;
+    border-right: 5px solid ;
+    margin-bottom: 15px;
+}
+
+// ユーザー設定（アカウント）
+.user_account_page{
+    display: flex;
+    background-color: #eaedef;    
+}
+
+.user_account_info{
+    padding: 50px;
+    display: flex;
+    flex-flow: column;
+    margin: 50px auto;
+    row-gap: 15px;
+    background-color: white;
+    border: 1px solid;
+    // width: 100%;
+}
+
+// ユーザー編集
+.only_from_page{
+    background-color: #F6F8F9;
+}
+
+.only_from_page_form{
+    margin: 30px auto;
+    padding: 50px;
+    display: flex;
+    flex-flow: column;
+    margin: 50px 300px 50px;
+    row-gap: 15px;
+    background-color: white;
+    border: 1px solid;
+    align-items: center;
+}
+
+.only_from_page_field{
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+}
+
+.link_to_btn{
+    color: #fff;
+    background-color: #00CCFF;
+    margin-top: 10px;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.user_account_link_to_btn{
+    color: black;
+    padding: 5px;
+}
+
+.user_login_link_to_btn{
+    color: black;
+    padding: 3px;
+}
+
+// ログインページ
+.user_sessions_new_btn{
+    display: flex;
+    flex-flow: column;
+    width: 80%;
+
+}
+
+div.field_with_errors {
+    background-color: #fcc;
+    padding: 2px;
+}

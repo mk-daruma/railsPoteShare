@@ -1,0 +1,39 @@
+<div class="room_new_page">  
+  <div class="nav">
+    <ul class="nav_ul user_nav_ul">
+      <li class="nav_li">基本情報</li>
+    </ul>
+  </div>
+
+  <div class="room_new_field">
+    <%= form_with model: @room, class:"room_new_field_form" do |f| %>
+      <%= render "shared/error", obj:@room %>
+      <div class="room_field">
+        <span class="room_new_title">ルーム情報登録</span>
+      </div>
+
+      <div class="room_field">
+        <span class="must_word room_new_item">ルーム名</span><%= f.text_field :name, autofocus: true, autocomplete: "name" , class:"room_new_field_form_item",placeholder: "ルーム名を入力"  %>
+      </div>
+
+      <div class="room_field">
+        <span class="must_word room_new_item">ルーム紹介</span><%= f.text_area :introduction,  autocomplete: "name" , class:"room_new_field_form_item",placeholder: "ルーム説明を入力"  %>
+      </div>
+
+      <div class="room_field">
+        <span class="must_word room_new_item">料金</span><%= f.number_field :price,  autocomplete: "name" , class:"room_new_field_form_item",placeholder: "一日あたりの料金を入力"  %>
+      </div>
+
+      <div class="room_field">
+        <span class="must_word room_new_item">住所</span><%= f.text_field :address,  autocomplete: "name" , class:"room_new_field_form_item",placeholder: "住所を入力"  %>
+      </div>
+
+      <div class="room_field">
+        <span class="must_word room_new_item">ルーム画像</span><%= f.file_field :room_image,  autocomplete: "name" , class:"room_new_field_form_item",placeholder: "ファイルを選択"  %>
+      </div>
+      <div>
+        <%= f.submit "登録", class:"room_new_submit"%>
+      </div>
+    <% end %>
+  </div>
+</div>

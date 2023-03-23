@@ -1,0 +1,18 @@
+<div class="reservation_new_page">
+  <div class="reservation_new_form" >
+  <%= render "shared/error", obj:@reservation %>
+    <%= form_with model:@reservation ,class:"reservation_new_form_item" do |f| %>
+      <h2 class="reservation_new_form_item_border">予約内容確認</h2>
+      開始日<br><%= f.date_field :reservation_start_day , readonly: true ,class:"reservation_new_form_item_readonly"%>
+      終了日<br><%= f.date_field :reservation_end_day , readonly: true,class:"reservation_new_form_item_readonly" %>
+      <span>使用日数:<%= (@reservation.reservation_end_day - @reservation.reservation_start_day).to_int %>日</span>
+      <span class="reservation_new_form_item_border">人数<%= @reservation.people %>人</span>
+      <span class="reservation_new_form_item_border">合計金額<br><%= @reservation.people.to_i * @reservation.room.price.to_i %></span>
+      <%= f.hidden_field :people %>
+      <%= f.hidden_field :room_id %>
+      <span class="reservation_new_form_item_border">上記内容でよろしければ「予約を確定」を押してください</span>
+      <%= f.submit "予約を確定" %>
+      <%= link_to 'ルーム詳細に戻る', room_path(@reservation.room_id), class: "reservation_new_form_item_back",method: :get%>
+    <% end %>
+  </div>
+</div>

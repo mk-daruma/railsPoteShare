@@ -1,0 +1,19 @@
+<div class="user_account_page">
+  <div class="nav">
+    <ul class="nav_ul">
+      <li class="nav_li user_blue_nav_li"><%= link_to 'アカウント', users_account_path(@user.id), class: 'dropdown-item',method: :get%></li>
+      <li class="nav_li user_black_nav_li"><%= link_to 'プロフィール', users_profile_path(@user.id), class: 'dropdown-item',method: :get%></li>
+    </ul>
+  </div>
+  <div class="user_account_info">
+    <h3 class="user_field border_bottom">アカウント</h3>
+    <div class="user_field border_bottom">
+      <span>名前：</span><span><%= @user.name %></span>
+    </div>
+    <div class="user_field border_bottom">
+      <span>email:</span><span><%= @user.email %></span>
+    </div>
+    <span><%= link_to 'email/passwordを編集', edit_user_registration_path,class: 'link_to_btn user_account_link_to_btn',method: :get%></span>
+  </div>
+</div>
+
